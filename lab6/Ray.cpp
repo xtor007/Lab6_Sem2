@@ -15,3 +15,10 @@ Ray::Ray(int x0, int y0, int z0, int a, int b, int c) {
     directionVector.push_back(b);
     directionVector.push_back(c);
 }
+
+vector<int> Ray::pointInZ(int z) {
+    vector<int> res;
+    res.push_back(((z-stPoint[2])*directionVector[0]/directionVector[2]) + stPoint[0]);
+    res.push_back(((z-stPoint[2])*directionVector[1]/directionVector[2]) + stPoint[1]);
+    return res;
+}

@@ -12,7 +12,6 @@
 #include <iostream>
 #include <vector>
 #include "Triangle.hpp"
-#include "Ray.hpp"
 using namespace std;
 
 class Area {

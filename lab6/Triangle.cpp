@@ -71,11 +71,21 @@ bool Triangle::isInTriangle(Ray ray) {
 bool Triangle::isIn2dTriangle(vector<vector<int>> trianglePoints, vector<int> findPoint) {
     trianglePoints.push_back(trianglePoints[0]);
     trianglePoints.push_back(trianglePoints[1]);
-    float k1; float k2;
+    float k1 = 0; float k2 = 0;
     bool isIn = true;
     for (int i = 0; i<3; i++) {
-        k1 = (findPoint[0] - trianglePoints[i][0])/(trianglePoints[i+1][0] - trianglePoints[i][0]) + (findPoint[1] - trianglePoints[i][1])/(trianglePoints[i+1][1] - trianglePoints[i][1]);
-        k2 = (trianglePoints[i+2][0] - trianglePoints[i][0])/(trianglePoints[i+1][0] - trianglePoints[i][0]) + (trianglePoints[i+2][1] - trianglePoints[i][1])/(trianglePoints[i+1][1] - trianglePoints[i][1]);
+        if ((trianglePoints[i+1][0] - trianglePoints[i][0]) != 0) {
+            k1 += (findPoint[0] - trianglePoints[i][0])/(trianglePoints[i+1][0] - trianglePoints[i][0]);
+        }
+        if ((trianglePoints[i+1][1] - trianglePoints[i][1]) != 0) {
+            k1 += (findPoint[1] - trianglePoints[i][1])/(trianglePoints[i+1][1] - trianglePoints[i][1]);
+        }
+        if ((trianglePoints[i+1][0] - trianglePoints[i][0]) != 0) {
+            k2 += (trianglePoints[i+2][0] - trianglePoints[i][0])/(trianglePoints[i+1][0] - trianglePoints[i][0]);
+        }
+        if ((trianglePoints[i+1][1] - trianglePoints[i][1]) != 0) {
+            k2 += (trianglePoints[i+2][1] - trianglePoints[i][1])/(trianglePoints[i+1][1] - trianglePoints[i][1]);
+        }
         if (k1*k2 <= 0) {
             isIn = false;
         }

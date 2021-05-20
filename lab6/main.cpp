@@ -20,5 +20,7 @@ int main(int argc, const char * argv[]) {
     for (int i=0; i<data.size(); i++) {
         tree.addToTree(&data[i]);
     }
+    Ray ray = Ray(0, 0, 1, 2, 2, 3);
+    cout << tree.findInTree(ray);
     return 0;
 }

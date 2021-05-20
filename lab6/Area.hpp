@@ -11,8 +11,18 @@
 #include <stdio.h>
 #include <iostream>
 #include <vector>
+#include "Triangle.hpp"
+#include "Ray.hpp"
 using namespace std;
 
-
+class Area {
+    vector<int> pointMax;
+    vector<int> pointMin;
+public:
+    int count = 0;
+    
+    void addToArea(Triangle *newData);
+    bool isInArea(Ray ray);
+};
 
 #endif /* Area_hpp */

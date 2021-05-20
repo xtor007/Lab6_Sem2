@@ -8,10 +8,10 @@
 #include "Ray.hpp"
 
 Ray::Ray(int x0, int y0, int z0, int a, int b, int c) {
-    this->x0 = x0;
-    this->y0 = y0;
-    this->z0 = z0;
-    this->a = a;
-    this->b = b;
-    this->c = c;
+    stPoint.push_back(x0);
+    stPoint.push_back(y0);
+    stPoint.push_back(z0);
+    directionVector.push_back(a);
+    directionVector.push_back(b);
+    directionVector.push_back(c);
 }

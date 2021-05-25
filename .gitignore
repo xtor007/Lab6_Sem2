@@ -33,3 +33,8 @@
 
 *.xcodeproj/
 *.DS_Store
+
+#VS
+.vs/
+.vs
+/.vs

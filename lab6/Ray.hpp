@@ -5,8 +5,6 @@
 //  Created by Anatoliy Khramchenko on 20.05.2021.
 //
 
-#ifndef Ray_hpp
-#define Ray_hpp
 
 #include <stdio.h>
 #include <iostream>
@@ -19,13 +17,18 @@ class Ray {
      x = x0 + a*t
      y = y0 + b*t
      z = z0 + c*t
+     толичка, сорри
      */
 public:
     vector<float> stPoint;
     vector<float> directionVector;
     
+<<<<<<< HEAD
     Ray(float x0, float y0, float z0, float a, float b, float c);
     vector<float> pointInZ (float z);
+=======
+    Ray(float source_x, float source_y, float source_z, float inter_x, float inter_y, float inter_z);
+    vector<int> pointInZ (int z);
+>>>>>>> frame
 };
 
-#endif /* Ray_hpp */

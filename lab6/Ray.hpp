@@ -24,8 +24,8 @@ public:
     vector<int> stPoint;
     vector<int> directionVector;
     
-    Ray(int x0, int y0, int z0, int a, int b, int c);
-    vector<int> pointInZ (int z);
+    Ray(float x0, float y0, float z0, float a, float b, float c);
+    vector<float> pointInZ (float z);
 };
 
 #endif /* Ray_hpp */

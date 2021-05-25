@@ -23,11 +23,5 @@ int main(int argc, const char * argv[]) {
     }
     Ray ray = Ray(0, 0, 1, 1, 1, 1);
     cout << tree.findInTree(ray) << endl;
-    ObjReader g("df");
-    double *r = g.getPointFromLine("0.45667 0.678 -0.7885");
-    cout << r[0] << " " << r[1] << " " << r[2] << endl;
-    cout << endl << stod("-0.7885") << endl;
-    int *d = g.getTriangeFromLine("39//3456 7685//657 7688//575");
-    cout << d[0] << " " << d[1] << " " << d[2] << "f" << endl;
     return 0;
 }

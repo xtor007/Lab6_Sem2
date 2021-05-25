@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include "Tree.hpp"
+#include "Frame.hpp"
 
 int main(int argc, const char * argv[]) {
     Tree tree;
@@ -20,7 +21,13 @@ int main(int argc, const char * argv[]) {
     for (int i=0; i<data.size(); i++) {
         tree.addToTree(&data[i]);
     }
-    Ray ray = Ray(0, 0, 1, 1, 1, 1);
-    cout << tree.findInTree(ray);
+
+    int h = 25, w = 50;
+    Frame frame(h, w, tree);
+    float** res = frame.getFrame();
+    for (int i = 0; i < h; i++) {
+        for (int j = 0; j < w; j++) cout << res[i][j] << " ";
+        cout << endl;
+    }
     return 0;
 }

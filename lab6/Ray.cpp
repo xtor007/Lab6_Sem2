@@ -7,7 +7,7 @@
 
 #include "Ray.hpp"
 
-Ray::Ray(int x0, int y0, int z0, int a, int b, int c) {
+Ray::Ray(float x0, float y0, float z0, float a, float b, float c) {
     stPoint.push_back(x0);
     stPoint.push_back(y0);
     stPoint.push_back(z0);
@@ -16,8 +16,8 @@ Ray::Ray(int x0, int y0, int z0, int a, int b, int c) {
     directionVector.push_back(c);
 }
 
-vector<int> Ray::pointInZ(int z) {
-    vector<int> res;
+vector<float> Ray::pointInZ(float z) {
+    vector<float> res;
     res.push_back(((z-stPoint[2])*directionVector[0]/directionVector[2]) + stPoint[0]);
     res.push_back(((z-stPoint[2])*directionVector[1]/directionVector[2]) + stPoint[1]);
     return res;

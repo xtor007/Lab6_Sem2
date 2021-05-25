@@ -7,7 +7,7 @@
 
 #include "Triangle.hpp"
 
-Triangle::Triangle (int x1, int y1, int z1, int x2, int y2, int z2, int x3, int y3, int z3, float cosAlpha) {
+Triangle::Triangle (float x1, float y1, float z1, float x2, float y2, float z2, float x3, float y3, float z3, float cosAlpha) {
     point1.push_back(x1);
     point1.push_back(y1);
     point1.push_back(z1);
@@ -46,8 +46,8 @@ int Triangle::getMin(int numCoor) {
 
 bool Triangle::isInTriangle(Ray ray) {
     vector<Ray> altRay;
-    vector<vector<int>> triangleIn2d;
-    vector<int> pointInXoY;
+    vector<vector<float>> triangleIn2d;
+    vector<float> pointInXoY;
     if ((point1[2] != point2[2]) || (point2[2] != point3[2])) {
         altRay.push_back(Ray(point1[0], point1[1], point1[2], ray.directionVector[0], ray.directionVector[1], ray.directionVector[2]));
         altRay.push_back(Ray(point2[0], point2[1], point2[2], ray.directionVector[0], ray.directionVector[1], ray.directionVector[2]));
@@ -57,7 +57,7 @@ bool Triangle::isInTriangle(Ray ray) {
         }
         pointInXoY = ray.pointInZ(0);
     } else {
-        vector<int> temp = {point1[0], point1[1]};
+        vector<float> temp = {point1[0], point1[1]};
         triangleIn2d.push_back(temp);
         temp = {point2[0], point2[1]};
         triangleIn2d.push_back(temp);
@@ -68,7 +68,7 @@ bool Triangle::isInTriangle(Ray ray) {
     return isIn2dTriangle(triangleIn2d, pointInXoY);
 }
 
-bool Triangle::isIn2dTriangle(vector<vector<int>> trianglePoints, vector<int> findPoint) {
+bool Triangle::isIn2dTriangle(vector<vector<float>> trianglePoints, vector<float> findPoint) {
     trianglePoints.push_back(trianglePoints[0]);
     trianglePoints.push_back(trianglePoints[1]);
     float k1 = 0; float k2 = 0;

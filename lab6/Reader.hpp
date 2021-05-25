@@ -18,12 +18,12 @@ using namespace std;
 
 class ObjReader{
     string path;
-    vector<vector<double>> vertexes;
+    vector<vector<float>> vertexes;
     /// hardcode
-    float lightPointX = 5.0, lightPointY = 5.0, lightPointZ = 5.0;
+    float lightPointX = 5.0, lightPointY = 5.0, lightPointZ = 5.0; // luminary
     /// hardcode end
-    vector<double> getPointFromLine(string line){
-        vector<double> point3D;
+    vector<float> getPointFromLine(string line){
+        vector<float> point3D;
         string buffer = "";
         for (int i = 0; i < line.size(); i++) {
             if (line[i] != ' ' && i != line.size() - 1) {

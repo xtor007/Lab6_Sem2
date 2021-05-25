@@ -8,6 +8,7 @@
 #include <iostream>
 #include "Tree.hpp"
 #include "Frame.hpp"
+#include "bmpWriter.hpp"
 
 int main(int argc, const char * argv[]) {
     Tree tree;
@@ -16,18 +17,16 @@ int main(int argc, const char * argv[]) {
     data.push_back(toAdd);
     toAdd = Triangle(0, 1, 4, -1, 6, 3, -1, 4, 8, 0.6);
     data.push_back(toAdd);
-    toAdd = Triangle(2, -1, 5, 1, 6, 5, -1, 4, 4, 0.7);
+    toAdd = Triangle(7, 0, 0, 8, 1, 0, 8, 10, 5, 0.13);         //(2, -1, 5, 1, 6, 5, -1, 4, 4, 0.7);
     data.push_back(toAdd);
     for (int i=0; i<data.size(); i++) {
         tree.addToTree(&data[i]);
     }
 
-    int h = 25, w = 50;
+    int h = 250, w = 500;
     Frame frame(h, w, tree);
     float** res = frame.getFrame();
-    for (int i = 0; i < h; i++) {
-        for (int j = 0; j < w; j++) cout << res[i][j] << " ";
-        cout << endl;
-    }
+    bmpWriter writer("test.bmp", res, h, w);
+    writer.bmpWrite();
     return 0;
 }

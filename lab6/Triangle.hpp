@@ -23,8 +23,8 @@ class Triangle {
 public:
     Triangle (float x1, float y1, float z1, float x2, float y2, float z2, float x3, float y3, float z3, float cosAlpha);
     float getColor();
-    int getMax(int numCoor);
-    int getMin(int numCoor);
+    float getMax(int numCoor);
+    float getMin(int numCoor);
     bool isInTriangle(Ray ray);
 };
 

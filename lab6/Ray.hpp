@@ -21,8 +21,8 @@ class Ray {
      z = z0 + c*t
      */
 public:
-    vector<int> stPoint;
-    vector<int> directionVector;
+    vector<float> stPoint;
+    vector<float> directionVector;
     
     Ray(float x0, float y0, float z0, float a, float b, float c);
     vector<float> pointInZ (float z);

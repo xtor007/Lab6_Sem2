@@ -12,7 +12,7 @@
 int main(int argc, const char * argv[]) {
     Tree tree;
     vector<Triangle> data;
-    Triangle toAdd = Triangle(0, 0, 0, 1, 2, 3, -1, 4, 7, 0.5);
+    Triangle toAdd = Triangle(0, 0, 0, 1, 1, 1, 1, 1, 0, 0.5);
     data.push_back(toAdd);
     toAdd = Triangle(0, 1, 4, -1, 6, 3, -1, 4, 8, 0.6);
     data.push_back(toAdd);
@@ -21,7 +21,7 @@ int main(int argc, const char * argv[]) {
     for (int i=0; i<data.size(); i++) {
         tree.addToTree(&data[i]);
     }
-    Ray ray = Ray(0, 0, 1, 1, 1, 1);
+    Ray ray = Ray(0, 0, 0, 1, 1, 0.5);
     cout << tree.findInTree(ray) << endl;
     return 0;
 }

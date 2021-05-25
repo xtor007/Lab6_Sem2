@@ -24,7 +24,7 @@ float Triangle::getColor() {
     return color;
 }
 
-int Triangle::getMax(int numCoor) {
+float Triangle::getMax(int numCoor) {
     if ((point1[numCoor] > point2[numCoor]) && (point1[numCoor] > point2[numCoor])) {
         return point1[numCoor];
     } else if (point2[numCoor] > point3[numCoor]) {
@@ -34,7 +34,7 @@ int Triangle::getMax(int numCoor) {
     }
 }
 
-int Triangle::getMin(int numCoor) {
+float Triangle::getMin(int numCoor) { 
     if ((point1[numCoor] < point2[numCoor]) && (point1[numCoor] < point2[numCoor])) {
         return point1[numCoor];
     } else if (point2[numCoor] < point3[numCoor]) {
@@ -78,15 +78,15 @@ bool Triangle::isIn2dTriangle(vector<vector<float>> trianglePoints, vector<float
             k1 += (findPoint[0] - trianglePoints[i][0])/(trianglePoints[i+1][0] - trianglePoints[i][0]);
         }
         if ((trianglePoints[i+1][1] - trianglePoints[i][1]) != 0) {
-            k1 += (findPoint[1] - trianglePoints[i][1])/(trianglePoints[i+1][1] - trianglePoints[i][1]);
+            k1 += -(findPoint[1] - trianglePoints[i][1])/(trianglePoints[i+1][1] - trianglePoints[i][1]);
         }
         if ((trianglePoints[i+1][0] - trianglePoints[i][0]) != 0) {
             k2 += (trianglePoints[i+2][0] - trianglePoints[i][0])/(trianglePoints[i+1][0] - trianglePoints[i][0]);
         }
         if ((trianglePoints[i+1][1] - trianglePoints[i][1]) != 0) {
-            k2 += (trianglePoints[i+2][1] - trianglePoints[i][1])/(trianglePoints[i+1][1] - trianglePoints[i][1]);
+            k2 += -(trianglePoints[i+2][1] - trianglePoints[i][1])/(trianglePoints[i+1][1] - trianglePoints[i][1]);
         }
-        if (k1*k2 <= 0) {
+        if (k1*k2 < 0) {
             isIn = false;
         }
     }

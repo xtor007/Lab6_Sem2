@@ -7,40 +7,37 @@
 
 #include <iostream>
 #include "Tree.hpp"
-<<<<<<< HEAD
 #include "Reader.hpp"
-
-int main(int argc, const char * argv[]) {
-    Tree tree;
-    string path = "cow.obj";
-    ObjReader reader(path);
-    vector<Triangle> data = reader.triangles;
-    for (int i=0; i<data.size();i++) {
-        tree.addToTree(&data[i]);
-    }
-    cout << 1;
-=======
 #include "Frame.hpp"
 #include "bmpWriter.hpp"
 
 int main(int argc, const char * argv[]) {
     Tree tree;
-    vector<Triangle> data;
-    Triangle toAdd = Triangle(0, 0, 0, 1, 2, 3, -1, 4, 7, 0.5);
-    data.push_back(toAdd);
-    toAdd = Triangle(0, 1, 4, -1, 6, 3, -1, 4, 8, 0.6);
-    data.push_back(toAdd);
-    toAdd = Triangle(7, 0, 0, 8, 1, 0, 8, 10, 5, 0.13);         //(2, -1, 5, 1, 6, 5, -1, 4, 4, 0.7);
-    data.push_back(toAdd);
-    for (int i=0; i<data.size(); i++) {
-        tree.addToTree(&data[i]);
-    }
-
+//    string path = "cow.obj";
+//    ObjReader reader(path);
+//    vector<Triangle> data = reader.triangles;
+//    for (int i=0; i<data.size();i++) {
+//        tree.addToTree(&data[i]);
+//    }
+    
+    Triangle big(-0.1, -0.2, -0.5, -0.98, 0, 0.2, 0.98, 0.1, 0.1, 0.5);
+    tree.addToTree(&big);
+    
+    
+    
     int h = 250, w = 500;
+    //int h = 20, w = 20;
     Frame frame(h, w, tree);
-    float** res = frame.getFrame();
-    bmpWriter writer("test.bmp", res, h, w);
+    float** pixelMat = frame.getFrame();
+    
+//    for (int i=0; i<h; i++) {
+//        for (int j=0; j<w; j++) {
+//            cout << pixelMat[i][j] << " ";
+//        }
+//        cout << endl;
+//    }
+    
+    bmpWriter writer("test.bmp", pixelMat, h, w);
     writer.bmpWrite();
->>>>>>> frame
     return 0;
 }

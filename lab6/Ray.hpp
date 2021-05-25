@@ -22,13 +22,7 @@ class Ray {
 public:
     vector<float> stPoint;
     vector<float> directionVector;
-    
-<<<<<<< HEAD
-    Ray(float x0, float y0, float z0, float a, float b, float c);
-    vector<float> pointInZ (float z);
-=======
     Ray(float source_x, float source_y, float source_z, float inter_x, float inter_y, float inter_z);
-    vector<int> pointInZ (int z);
->>>>>>> frame
+    vector<float> pointInZ (float z);
 };
 

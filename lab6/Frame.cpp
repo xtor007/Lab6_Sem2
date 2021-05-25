@@ -9,16 +9,17 @@ float** Frame::generateFrame() {
 }
 
 void Frame::fillFrame() {
-	float stepH = height / (z2 - z1),
-		  stepW = width / (y2 - y1);
-	cout << stepH << " " << stepW << endl;
+	float stepH = (z2 - z1) / height,
+		  stepW = (y2 - y1) / width;
+	//cout << stepH << " " << stepW << endl;
 	int countPixelH = 0, countPixelW = 0;
-	for (float countH = z1; countH < z2; countH += stepH, countPixelH++) {
-		for (float countW = y1; countW < y2; countW += stepW, countPixelW++) {
+	for (float countH = z1; countH < z2 - stepH; countH += stepH, countPixelH++) {
+		for (float countW = y1; countW < y2 - stepW; countW += stepW, countPixelW++) {
 			Ray dotRay(x, countW, countH, xShutter, yShutter, zShutter);
 			float value = tree.findInTree(dotRay);
-			cout << countPixelH << " " << countPixelW << " " << value << endl;
+			//cout << countPixelH << " " << countPixelW << endl;
 			frame[countPixelH][countPixelW] = value;
 		}
+		countPixelW = 0;
 	}
 }

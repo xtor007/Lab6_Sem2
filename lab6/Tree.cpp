@@ -55,7 +55,7 @@ float Tree::findInNode(Ray ray, Node *node) {
             return res;
         }
         if (node->right->area.isInArea(ray)) {
-            res = findInNode(ray, node->left);
+            res = findInNode(ray, node->right);
         }
     }
     return res;

@@ -25,7 +25,7 @@ float Triangle::getColor() {
 }
 
 float Triangle::getMax(int numCoor) {
-    if ((point1[numCoor] > point2[numCoor]) && (point1[numCoor] > point2[numCoor])) {
+    if ((point1[numCoor] > point2[numCoor]) && (point1[numCoor] > point3[numCoor])) {
         return point1[numCoor];
     } else if (point2[numCoor] > point3[numCoor]) {
         return point2[numCoor];
@@ -35,7 +35,7 @@ float Triangle::getMax(int numCoor) {
 }
 
 float Triangle::getMin(int numCoor) { 
-    if ((point1[numCoor] < point2[numCoor]) && (point1[numCoor] < point2[numCoor])) {
+    if ((point1[numCoor] < point2[numCoor]) && (point1[numCoor] < point3[numCoor])) {
         return point1[numCoor];
     } else if (point2[numCoor] < point3[numCoor]) {
         return point2[numCoor];
@@ -50,8 +50,8 @@ bool Triangle::isInTriangle(Ray ray) {
     vector<float> pointInXoY;
     if ((point1[2] != point2[2]) || (point2[2] != point3[2])) {
         altRay.push_back(Ray(point1[0], point1[1], point1[2], ray.directionVector[0]+point1[0], ray.directionVector[1]+point1[1], ray.directionVector[2]+point1[2]));
-        altRay.push_back(Ray(point2[0], point2[1], point2[2], ray.directionVector[0], ray.directionVector[1], ray.directionVector[2]));
-        altRay.push_back(Ray(point3[0], point3[1], point3[2], ray.directionVector[0], ray.directionVector[1], ray.directionVector[2]));
+        altRay.push_back(Ray(point2[0], point2[1], point2[2], ray.directionVector[0]+point2[0], ray.directionVector[1]+point2[1], ray.directionVector[2]+point2[2]));
+        altRay.push_back(Ray(point3[0], point3[1], point3[2], ray.directionVector[0]+point3[0], ray.directionVector[1]+point3[1], ray.directionVector[2]+point3[2]));
         for (int i=0; i<3; i++) {
             triangleIn2d.push_back(altRay[i].pointInZ(0));
         }

@@ -15,7 +15,7 @@ using namespace std;
 
 class Geometry{
     float x1, y1, z1, x2, y2, z2, x3, y3, z3;
-    float lightPointX, lightPointY, lightPointZ;
+    float lightPointX = 5, lightPointY = 5, lightPointZ = 5;
     vector<vector<float>> vectorCoordinates;
     
     void getNormalVector(){

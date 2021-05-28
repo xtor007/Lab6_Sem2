@@ -80,14 +80,17 @@ class ObjReader{
             showMessage("There's to .obj file at the path: " + path, 0);
         }
     }
+    
     void showMessage(string str, bool error = 0){
         cout << str << endl;
         if (error) exit(error);
     }
+    
     float getCosAplha(float x1, float y1, float z1, float x2, float y2, float z2, float x3, float y3, float z3){
         Geometry geo(x1, y1, z1, x2, y2, z2, x3, y3, z3, lightPointX, lightPointY, lightPointZ);
         return geo.getCos();
     }
+    
 public:
     vector<Triangle> triangles;
     ObjReader(string path){

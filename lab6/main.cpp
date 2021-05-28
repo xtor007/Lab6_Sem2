@@ -13,20 +13,27 @@
 
 int main(int argc, const char * argv[]) {
     Tree tree;
-//    string path = "cow.obj";
-//    ObjReader reader(path);
-//    vector<Triangle> data = reader.triangles;
-//    for (int i=0; i<data.size();i++) {
-//        tree.addToTree(&data[i]);
-//    }
+    string path = "cow.obj";
+    ObjReader reader(path);
+    vector<Triangle> data = reader.triangles;
+    for (int i=0; i<data.size();i++) {
+        tree.addToTree(&data[i]);
+    }
+    //cout << "reading end";
     
-    Triangle big(-0.1, -0.2, -0.5, -0.98, 0, 0.2, 0.98, 0.1, 0.1, 0.5);
-    tree.addToTree(&big);
+    //Triangle big(-1, -2, -5, -1, 0, 2, 1, 1, 1, 0.5);
+    //Triangle dop(10000000, 10000000, 100000000, -2000000, -2000000, -2000000, -1000, 2000000, -30000, 0.6);
+    //tree.addToTree(&big);
+    //tree.addToTree(&dop);
     
+//    Ray ray(0, 0, 0, 0, 0, 1);
+//
+//    cout << tree.findInTree(ray);
+//
     
-    
-    int h = 250, w = 500;
+    int h = 400, w = 600;
     //int h = 20, w = 20;
+    
     Frame frame(h, w, tree);
     float** pixelMat = frame.getFrame();
     
@@ -36,6 +43,8 @@ int main(int argc, const char * argv[]) {
 //        }
 //        cout << endl;
 //    }
+    
+    //cout << "frame end";
     
     bmpWriter writer("test.bmp", pixelMat, h, w);
     writer.bmpWrite();

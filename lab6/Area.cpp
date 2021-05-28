@@ -32,8 +32,6 @@ bool Area::isInArea(Ray ray) {
         minT.push_back((pointMin[i]-ray.stPoint[i])/ray.directionVector[i]);
         maxT.push_back((pointMax[i]-ray.stPoint[i])/ray.directionVector[i]);
     }
-
-    
     for (int i=0; i<3; i++) {
         for (int j=0; j<3; j++) {
             if (minT[i] > maxT[j]) {

@@ -25,21 +25,28 @@ void Area::addToArea(Triangle *newData) {
 }
 
 bool Area::isInArea(Ray ray) {
-    return true;
+    //return true;
     vector<float> minT;
     vector<float> maxT;
     bool flag = true;
     for (int i=0; i<3; i++) {
-        minT.push_back((pointMin[i]-ray.stPoint[i])/ray.directionVector[i]);
-        maxT.push_back((pointMax[i]-ray.stPoint[i])/ray.directionVector[i]);
+        if (ray.directionVector[i] > 0) {
+            minT.push_back((pointMin[i]-ray.stPoint[i])/ray.directionVector[i]);
+            maxT.push_back((pointMax[i]-ray.stPoint[i])/ray.directionVector[i]);
+        } else if (ray.directionVector[i] < 0) {
+            maxT.push_back((pointMin[i]-ray.stPoint[i])/ray.directionVector[i]);
+            minT.push_back((pointMax[i]-ray.stPoint[i])/ray.directionVector[i]);
+        } else {
+            return true;
+        }
     }
     for (int i=0; i<3; i++) {
-        //for (int j=0; j<3; j++) {
-            if (minT[i] > maxT[i]) {
+        for (int j=0; j<3; j++) {
+            if (minT[i] > maxT[j]) {
                 flag = false;
                 return false;
             }
-       // }
+        }
     }
     return flag;
 }

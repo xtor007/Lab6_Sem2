@@ -25,7 +25,7 @@ float Geometry::vectorModule(float x, float y, float z){
 
 float Geometry::getCos(){
     float res = ((vectorCoordinates[0][0]*vectorCoordinates[1][0]+vectorCoordinates[0][1]*vectorCoordinates[1][1]+vectorCoordinates[0][2]*vectorCoordinates[1][2])/(vectorModule(vectorCoordinates[0][0], vectorCoordinates[0][1], vectorCoordinates[0][2])*vectorModule(vectorCoordinates[1][0], vectorCoordinates[1][1], vectorCoordinates[1][2])));
-    return res >=0 ? res : -1;
+    return res ;//>=0 ? res : -1;
 }
 
 void Geometry::findInternalDotCoordinates(){

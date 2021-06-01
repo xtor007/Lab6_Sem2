@@ -13,7 +13,7 @@
 
 int main(int argc, const char * argv[]) {
     Tree tree;
-    string path = "sphere.obj";
+    string path = "untitled.obj";
     ObjReader reader(path);
     vector<Triangle> data = reader.triangles;
     for (int i=0; i<data.size();i++) {
@@ -34,7 +34,7 @@ int main(int argc, const char * argv[]) {
     
     
     
-    int h = 200, w = 200;
+    int h = 720, w = 1024;
     //int h = 20, w = 20;
     
     Frame frame(h, w, tree);

@@ -23,9 +23,13 @@ float Geometry::vectorModule(Point vec){
     return sqrt(pow(vec.x, 2)+pow(vec.y, 2)+pow(vec.z, 2));
 }
 
-float Geometry::getCos(){
-    float res = ((vectorCoordinates[0][0]*vectorCoordinates[1][0]+vectorCoordinates[0][1]*vectorCoordinates[1][1]+vectorCoordinates[0][2]*vectorCoordinates[1][2])/(vectorModule(vectorCoordinates[0]) * vectorModule(vectorCoordinates[1])));
-    return res ;//>=0 ? res : -1;
+float* Geometry::getCos(){
+    float cos = ((vectorCoordinates[0][0]*vectorCoordinates[1][0]+vectorCoordinates[0][1]*vectorCoordinates[1][1]+vectorCoordinates[0][2]*vectorCoordinates[1][2])/(vectorModule(vectorCoordinates[0]) * vectorModule(vectorCoordinates[1])));
+    float *res = new float[3];
+    res[0] = vectorCoordinates[0][0]/vectorModule(vectorCoordinates[0]);
+    res[1] = vectorCoordinates[0][1]/vectorModule(vectorCoordinates[0]);
+    res[2] = vectorCoordinates[0][2]/vectorModule(vectorCoordinates[0]);
+    return res ;//>=0 ? res : -1;   
 }
 
 void Geometry::findInternalDotCoordinates(){

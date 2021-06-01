@@ -30,28 +30,33 @@ void Tree::addToTree(Triangle *newTriangle) {
     addToNode(newTriangle, &root);
 }
 
-float Tree::findInTree(Ray ray) {
-    float res = findInNode(ray, &root);
-    if (res == -1) {
-        return 0;
+float* Tree::findInTree(Ray ray) {
+    float* res = findInNode(ray, &root);
+    float *nulRes = new float[3];
+    nulRes[0] = 0; nulRes[1] = 0; nulRes[2] = 0;
+    if (res[0] == -1) {
+        return nulRes;
     } else {
         return res;
     }
 }
 
-float Tree::findInNode(Ray ray, Node *node) {
-    float res = -1;
+float* Tree::findInNode(Ray ray, Node *node) {
+    float *res = new float[3];
+    float *nulRes = new float[3];
+    nulRes[0] = -1; nulRes[1] = -1; nulRes[2] = -1;
+    res[0] = -1; res[1] = -1; res[2] = -1;
     if (node->area.count == 1) {
         if (node->data->intersect_triangle(ray)) {
             return node->data->getColor();
         } else {
-            return -1;
+            return nulRes;
         }
     } else {
         if (node->left->area.isInArea(ray)) {
             res = findInNode(ray, node->left);
         }
-        if (res != -1) {
+        if (res[0] != -1) {
             return res;
         }
         if (node->right->area.isInArea(ray)) {

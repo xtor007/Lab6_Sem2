@@ -49,15 +49,21 @@ int Triangle::intersect_triangle(Ray ray) {
     return 1;
 } 
 
-Triangle::Triangle (float x1, float y1, float z1, float x2, float y2, float z2, float x3, float y3, float z3, float cosAlpha) {
+Triangle::Triangle (float x1, float y1, float z1, float x2, float y2, float z2, float x3, float y3, float z3,  float colorR, float colorG, float colorB) {
     point1 = { x1, y1, z1 };
     point2 = { x2, y2, z2 };
     point3 = { x3, y3, z3 };
-    color = cosAlpha;
+    this->colorR = colorR;
+    this->colorG = colorG;
+    this->colorB = colorB;
 }
 
-float Triangle::getColor() {
-    return color;
+float* Triangle::getColor() {
+    float *res = new float[3];
+    res[0] = colorR;
+    res[1] = colorG;
+    res[2] = colorB; 
+    return res;
 }
 
 

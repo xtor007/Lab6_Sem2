@@ -37,10 +37,10 @@ typedef struct {
 class bmpWriter {
 private:
     BMPHEAD header;
-    float** pixelMap;
+    float*** pixelMap;
     string path, name;
     int height, width;
 public:
-    bmpWriter(string name, float** pixelMap, int h, int w);
+    bmpWriter(string name, float*** pixelMap, int h, int w);
     void bmpWrite();
 };

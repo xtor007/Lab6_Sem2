@@ -19,9 +19,10 @@ int main(int argc, const char * argv[]) {
     for (int i=0; i<data.size();i++) {
         tree.addToTree(&data[i]);
     }
-    int h = 720, w = 720;
+    int h = 2000, w = 2000;
     Frame frame(h, w, tree);
-    float** pixelMat = frame.getFrame();
+    float*** pixelMat = frame.getFrame();
+    cout << pixelMat[0][0][0];
     bmpWriter writer("test.bmp", pixelMat, h, w);
     writer.bmpWrite();
     return 0;

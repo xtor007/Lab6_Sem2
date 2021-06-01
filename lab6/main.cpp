@@ -32,6 +32,8 @@ int main(int argc, const char * argv[]) {
 //    cout << tree.findInTree(ray);
 //
     
+    
+    
     int h = 300, w = 300;
     //int h = 20, w = 20;
     

@@ -71,7 +71,7 @@ class ObjReader{
                     Geometry geo(vertexes[triangle[0]-1][0], vertexes[triangle[0]-1][1], vertexes[triangle[0]-1][2], vertexes[triangle[1]-1][0], vertexes[triangle[1]-1][1], vertexes[triangle[1]-1][2], vertexes[triangle[2]-1][0], vertexes[triangle[2]-1][1], vertexes[triangle[2]-1][2], lightPointX, lightPointY, lightPointZ);
                     float cos = geo.getCos();
                     // getting triangle
-                    Triangle temp(vertexes[triangle[0]-1][0], vertexes[triangle[0]-1][1], vertexes[triangle[0]-1][2], vertexes[triangle[1]-1][0], vertexes[triangle[1]-1][1], vertexes[triangle[1]-1][2], vertexes[triangle[2]-1][0], vertexes[triangle[2]-1][1], vertexes[triangle[2]-1][2], cos);
+                    Triangle temp(vertexes[triangle[0]-1][0], vertexes[triangle[0]-1][1], vertexes[triangle[0]-1][2], vertexes[triangle[1]-1][0], vertexes[triangle[1]-1][1], vertexes[triangle[1]-1][2], vertexes[triangle[2]-1][0], vertexes[triangle[2]-1][1], vertexes[triangle[2]-1][2], 0.5);//cos);
 
                     triangles.push_back(temp);
                 }

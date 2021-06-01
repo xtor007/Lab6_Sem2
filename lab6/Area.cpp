@@ -25,7 +25,7 @@ void Area::addToArea(Triangle *newData) {
 }
 
 bool Area::isInArea(Ray ray) {
-    return true;
+    //return true;
     vector<float> minT;
     vector<float> maxT;
     bool flag = true;
@@ -34,12 +34,12 @@ bool Area::isInArea(Ray ray) {
         maxT.push_back((pointMax[i]-ray.stPoint[i])/ray.directionVector[i]);
     }
     for (int i=0; i<3; i++) {
-        for (int j=0; j<3; j++) {
-            if (minT[i] > maxT[j]) {
+        //for (int j=0; j<3; j++) {
+            if (minT[i] > maxT[i]) {
                 flag = false;
                 return false;
             }
-        }
+       // }
     }
     return flag;
 }

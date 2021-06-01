@@ -1,6 +1,6 @@
 #include "bmpWriter.hpp"
 
-bmpWriter::bmpWriter(string name, float** pixelMap, int h, int w): path(std::__fs::filesystem::current_path().string()), name(name), pixelMap(pixelMap), height(h), width(w) {
+bmpWriter::bmpWriter(string name, float** pixelMap, int h, int w): path(filesystem::current_path().string()), name(name), pixelMap(pixelMap), height(h), width(w) {
     int nullBites = 4 - ((w * 3) % 4);
     int fileSize = h * (w * 3 + nullBites);
     header = {'B', 'M', fileSize , 0, 0, 54, 40, w, h, 1, 24, 0, fileSize - 54, 2834, 2834, 0, 0};

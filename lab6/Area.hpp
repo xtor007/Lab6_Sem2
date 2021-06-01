@@ -15,8 +15,8 @@
 using namespace std;
 
 class Area {
-    vector<float> pointMax;
-    vector<float> pointMin;
+    Point pointMax;
+    Point pointMin;
 public:
     int count = 0;
     

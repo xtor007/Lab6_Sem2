@@ -10,8 +10,8 @@
 void Area::addToArea(Triangle *newData) {
     for (int i=0; i<3; i++) {
         if (count == 0) {
-            pointMax.push_back(newData->getMax(i));
-            pointMin.push_back(newData->getMin(i));
+            pointMax[i] = newData->getMax(i);
+            pointMin[i] = newData->getMin(i);
         } else {
             if (newData->getMax(i) > pointMax[i]) {
                 pointMax[i] = newData->getMax(i);

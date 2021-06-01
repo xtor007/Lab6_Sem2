@@ -12,7 +12,6 @@ using namespace std;
 
 struct Point{
     float x, y, z;
-    //Point() : x(0), y(0), z(0) {};
     Point(float x = 0, float y = 0, float z = 0) : x(x), y(y), z(z) {};
     float &operator[](int index) {
         switch (index)
@@ -24,7 +23,7 @@ struct Point{
         case 2: 
             return z;
         default:
-            break;
+            return 0;
         }
     }
 };

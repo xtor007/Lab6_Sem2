@@ -23,9 +23,11 @@ class ObjReader{
     /// hardcode
     float lightPointX = -5.0, lightPointY = 5.0, lightPointZ = 5.0; // luminary
     /// hardcode end
+
     vector<float> getPointFromLine(string line);
     vector<int> getTriangeFromLine(string line);
-    void Read();    
+    void Read();
+    
     void showMessage(string str, bool error = 0);
     
     float getCosAplha(float x1, float y1, float z1, float x2, float y2, float z2, float x3, float y3, float z3);

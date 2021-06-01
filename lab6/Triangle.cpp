@@ -27,12 +27,23 @@ int Triangle::intersect_triangle(Ray ray) {
     CROSS(pvec, ray.directionVector, edge2);
 
     det = DOT(edge1, pvec);
-    
-    
-    if (det < EPSILON) {
+
+    if(det < EPSILON) {
         return 0;
-        SUN(tvec,orig);
     }
+
+    SUB(tvec, ray.stPoint, point1)
+
+    u = DOT(tvec, pvec);
+    if (u < 0.0 || u > det)
+        return 0;
+
+    CROSS(qvec, tvec, edge1);
+
+    v = DOT(ray.stPoint, qvec);
+    if (v < 0.0 || u + v > det)
+        return 0;
+
 
 //    if (det > -EPSILON && det < EPSILON) {
 //        return 0;

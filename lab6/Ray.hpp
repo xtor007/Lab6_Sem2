@@ -17,7 +17,6 @@ class Ray {
      x = x0 + a*t
      y = y0 + b*t
      z = z0 + c*t
-     толичка, сорри
      */
 public:
     vector<float> stPoint;

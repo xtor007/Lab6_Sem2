@@ -11,7 +11,21 @@
 #include <stdio.h>
 #include <iostream>
 #include <vector>
+#include <cmath>
+#include <cstdio>
+#include <cstdlib>
+#include <memory>
+#include <vector>
+#include <utility>
+#include <cstdint>
+#include <iostream>
+#include <fstream>
+#include <cmath>
+#include <limits>
+#include <random>
+#include "Vec3.hpp"
 #include "Ray.hpp"
+//#include <cc>
 using namespace std;
 
 class Triangle {
@@ -26,6 +40,7 @@ public:
     float getMax(int numCoor);
     float getMin(int numCoor);
     bool isInTriangle(Ray ray);
+    bool rayTriangleIntersect(Ray ray); 
 };
 
 #endif /* Triangle_hpp */

@@ -42,7 +42,8 @@ float Tree::findInTree(Ray ray) {
 float Tree::findInNode(Ray ray, Node *node) {
     float res = -1;
     if (node->area.count == 1) {
-        if (node->data->isInTriangle(ray)) {
+        if (node->data->rayTriangleIntersect(ray)) {
+            //cout << "EEEs, nalivay";
             return node->data->getColor();
         } else {
             return -1;

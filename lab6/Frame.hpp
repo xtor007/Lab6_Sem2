@@ -8,9 +8,9 @@ using namespace std;
 class Frame {
 private:
 	// FIXED FRAME POSITION
-	float x = -100, y1 = -1, z1 = -1, y2 = 1, z2 = 1;
+	float x = -10, y1 = -1, z1 = -1, y2 = 1, z2 = 1;
 	//SHUTTER POSITION
-	float xShutter = -10, yShutter = 0, zShutter = 0;
+	float xShutter = -20, yShutter = 0, zShutter = 0;
 
 	Tree& tree;
 	int height, width;

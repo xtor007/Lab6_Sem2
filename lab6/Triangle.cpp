@@ -93,3 +93,68 @@ bool Triangle::isIn2dTriangle(vector<vector<float>> trianglePoints, vector<float
     findPoint.push_back(1);
     return isIn;
 }
+
+bool Triangle::rayTriangleIntersect(Ray ray) {
+    
+    //return true;
+    Vec3f orig(ray.stPoint[0],ray.stPoint[1],ray.stPoint[2]);
+    Vec3f dir(ray.directionVector[0]+ray.stPoint[0],ray.directionVector[1]+ray.stPoint[1],ray.directionVector[2]+ray.stPoint[2]);
+    
+    Vec3f v0(point1[0],point1[1],point1[2]);
+    Vec3f v1(point2[0],point2[1],point2[2]);
+    Vec3f v2(point3[0],point3[1],point3[2]);
+//    Vec3f v0(1,1,1);
+//    Vec3f v1(1,1,1);
+//    Vec3f v2(1,1,1);
+    
+    constexpr float kEpsilon = 1e-8;
+    // compute plane's normal
+    Vec3f v0v1 = v1 - v0;
+    Vec3f v0v2 = v2 - v0;
+    // no need to normalize
+    Vec3f N = v0v1.crossProduct(v0v2); // N
+    float area2 = N.length(); 
+ 
+    // Step 1: finding P
+ 
+    // check if ray and plane are parallel ?
+    float NdotRayDirection = N.dotProduct(dir); 
+    if (fabs(NdotRayDirection) < kEpsilon) // almost 0
+        return false; // they are parallel so they don't intersect !
+ 
+    // compute d parameter using equation 2
+    float d = N.dotProduct(v0);
+ 
+    // compute t (equation 3)
+    float t = (N.dotProduct(orig) + d) / NdotRayDirection;
+    // check if the triangle is in behind the ray
+    
+    if (t < 0) return false; // the triangle is behind
+ 
+    // compute the intersection point using equation 1
+    Vec3f P = orig + t * dir;
+ 
+    // Step 2: inside-outside test
+    Vec3f C; // vector perpendicular to triangle's plane
+ 
+    // edge 0
+    Vec3f edge0 = v1 - v0; 
+    Vec3f vp0 = P - v0;
+    C = edge0.crossProduct(vp0);
+    
+    if (N.dotProduct(C) < 0) return false; // P is on the right side
+ 
+    // edge 1
+    Vec3f edge1 = v2 - v1;
+    Vec3f vp1 = P - v1;
+    C = edge1.crossProduct(vp1);
+    if (N.dotProduct(C) < 0)  return false; // P is on the right side
+ 
+    // edge 2
+    Vec3f edge2 = v0 - v2;
+    Vec3f vp2 = P - v2;
+    C = edge2.crossProduct(vp2);
+    if (N.dotProduct(C) < 0) return false; // P is on the right side;
+ 
+    return true; // this ray hits the triangle
+}

@@ -13,6 +13,7 @@
 #include <fstream>
 #include "Triangle.hpp"
 #include "GeometryCalculations.hpp"
+#include <string>
 
 using namespace std;
 

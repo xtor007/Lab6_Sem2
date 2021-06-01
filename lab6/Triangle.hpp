@@ -41,6 +41,7 @@ public:
     float getMin(int numCoor);
     bool isInTriangle(Ray ray);
     bool rayTriangleIntersect(Ray ray); 
+    int intersect_triangle(Ray ray);
 };
 
 #endif /* Triangle_hpp */

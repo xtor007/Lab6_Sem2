@@ -23,7 +23,7 @@ struct Point{
         case 2: 
             return z;
         default:
-            return 0;
+            return x;
         }
     }
 };

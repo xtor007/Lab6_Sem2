@@ -19,7 +19,7 @@ int main(int argc, const char * argv[]) {
     for (int i=0; i<data.size();i++) {
         tree.addToTree(&data[i]);
     }
-    int h = 1024, w = 1024;
+    int h = 720, w = 720;
     Frame frame(h, w, tree);
     float** pixelMat = frame.getFrame();
     bmpWriter writer("test.bmp", pixelMat, h, w);

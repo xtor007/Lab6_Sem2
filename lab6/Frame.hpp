@@ -10,7 +10,7 @@ private:
 	// FIXED FRAME POSITION
 	float x = -10, y1 = -1, z1 = -1, y2 = 1, z2 = 1;
 	//SHUTTER POSITION
-	float xShutter = -8, yShutter = 0, zShutter = 0;
+	float xShutter = -5, yShutter = 0, zShutter = 0;
 
 	Tree& tree;
 	int height, width;

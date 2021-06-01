@@ -27,28 +27,36 @@ int Triangle::intersect_triangle(Ray ray) {
     CROSS(pvec, ray.directionVector, edge2);
 
     det = DOT(edge1, pvec);
-
-    if (det > -EPSILON && det < EPSILON) {
+    
+    
+    if (det < EPSILON) {
         return 0;
+        SUN(tvec,orig);
     }
 
-    inv_det = 1.0 / det;
-
-    SUB(tvec, ray.stPoint, point1);
-
-    u = DOT(tvec, pvec) * inv_det;
-    if (u < 0.0 || u > 1.0)
-        return 0;
-    
-    CROSS(qvec, tvec, edge1);
-
-    v = DOT(ray.directionVector, qvec) * inv_det;
-    if (v < 0.0 || v > 1.0)
-        return 0;
-
-    t = DOT(edge2, qvec) * inv_det;
-
-    return 1;
+//    if (det > -EPSILON && det < EPSILON) {
+//        return 0;
+//    }
+//
+//    inv_det = 1.0 / det;
+//
+//    SUB(tvec, ray.stPoint, point1);
+//
+//    u = DOT(tvec, pvec) * inv_det;
+//    if (u < 0.0 || u > 1.0)
+//        return 0;
+//
+//    CROSS(qvec, tvec, edge1);
+//
+//    v = DOT(ray.directionVector, qvec) * inv_det;
+//    if (v < 0.0 || v > 1.0)
+//        return 0;
+//
+//    t = DOT(edge2, qvec) * inv_det;
+////    if (t < 0.0) //|| t > 1.0)
+////        return 0;
+//
+//    return 1;
 }
 
 Triangle::Triangle (float x1, float y1, float z1, float x2, float y2, float z2, float x3, float y3, float z3, float cosAlpha) {

@@ -13,18 +13,18 @@
 
 int main(int argc, const char * argv[]) {
     Tree tree;
-    string path = "sphere.obj";
-    ObjReader reader(path);
-    vector<Triangle> data = reader.triangles;
-    for (int i=0; i<data.size();i++) {
-        tree.addToTree(&data[i]);
-    }
+//    string path = "sphere.obj";
+//    ObjReader reader(path);
+//    vector<Triangle> data = reader.triangles;
+//    for (int i=0; i<data.size();i++) {
+//        tree.addToTree(&data[i]);
+//    }
     
     //cout << "reading end";
     
-    //Triangle big(0.2, 0.2, 0.1, -0.1, -0.1, -0.2, -0.1, 0.1, -0.1, 0.5);
+    Triangle big(0.2, 0.2, 0.1, -0.1, -0.1, -0.2, -0.1, 0.1, -0.1, 0.5);
     //Triangle dop(10000000, 10000000, 100000000, -2000000, -2000000, -2000000, -1000, 2000000, -30000, 0.6);
-    //tree.addToTree(&big);
+    tree.addToTree(&big);
     //tree.addToTree(&dop);
     
 //    Ray ray(0, 0, 0, 0, 0, 1);
@@ -34,7 +34,7 @@ int main(int argc, const char * argv[]) {
     
     
     
-    int h = 300, w = 300;
+    int h = 200, w = 200;
     //int h = 20, w = 20;
     
     Frame frame(h, w, tree);

@@ -25,7 +25,7 @@ void Area::addToArea(Triangle *newData) {
 }
 
 bool Area::isInArea(Ray ray) {
-    //return true;
+    return true;
     vector<float> minT;
     vector<float> maxT;
     bool flag = true;

@@ -14,9 +14,9 @@ void Geometry::getNormalVector(){
 }
 
 void  Geometry::getVectorToLightPoint(){
-    vectorCoordinates[1].push_back(lightPointX-x1);
-    vectorCoordinates[1].push_back(lightPointY-y1);
-    vectorCoordinates[1].push_back(lightPointZ-z1);
+    vectorCoordinates[1].push_back(lightPointX-res[0]);
+    vectorCoordinates[1].push_back(lightPointY-res[1]);
+    vectorCoordinates[1].push_back(lightPointZ-res[2]);
 }
 
 float Geometry::vectorModule(float x, float y, float z){
@@ -26,6 +26,17 @@ float Geometry::vectorModule(float x, float y, float z){
 float Geometry::getCos(){
     float res = ((vectorCoordinates[0][0]*vectorCoordinates[1][0]+vectorCoordinates[0][1]*vectorCoordinates[1][1]+vectorCoordinates[0][2]*vectorCoordinates[1][2])/(vectorModule(vectorCoordinates[0][0], vectorCoordinates[0][1], vectorCoordinates[0][2])*vectorModule(vectorCoordinates[1][0], vectorCoordinates[1][1], vectorCoordinates[1][2])));
     return res >=0 ? res : -1;
+}
+
+void Geometry::findInternalDotCoordinates(){
+    vector<float> medianPoint(3);
+    res.resize(3);
+    medianPoint[0] = (x2 + x3)/2;
+    medianPoint[1] = (y2 + y3)/2;
+    medianPoint[2] = (z2 + z3)/2;
+    res[0] = (x1+medianPoint[0])/2;
+    res[1] = (y1+medianPoint[1])/2;
+    res[2] = (z1+medianPoint[2])/2;
 }
 
 

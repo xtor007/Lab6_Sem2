@@ -16,9 +16,7 @@ void Frame::fillFrame() {
 		for (float countW = y1; countW < y2 - stepW; countW += stepW, countPixelW++) {
 			Ray dotRay(x, countW, countH, xShutter, yShutter, zShutter);
 			float value = tree.findInTree(dotRay);
-//            if (value == 0) {
-//                cout << x << " " << countW << " " << countH << " " << xShutter << " " << yShutter << " " << zShutter << endl;
-//            }
+
             frame[countPixelH][countPixelW] = abs(value);
 		}
 		countPixelW = 0;

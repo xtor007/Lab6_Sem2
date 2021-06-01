@@ -19,12 +19,25 @@ int main(int argc, const char * argv[]) {
     for (int i=0; i<data.size();i++) {
         tree.addToTree(&data[i]);
     }
+<<<<<<< Updated upstream
    
     int h = 1024, w = 1024;
+=======
+    
+    
+    
+    
+    int h = 1024, w = 1024;
+
+>>>>>>> Stashed changes
     
     Frame frame(h, w, tree);
     float** pixelMat = frame.getFrame();
     
+<<<<<<< Updated upstream
+=======
+    
+>>>>>>> Stashed changes
     bmpWriter writer("test.bmp", pixelMat, h, w);
     writer.bmpWrite();
     return 0;

@@ -17,12 +17,6 @@ void bmpWriter::bmpWrite() {
             PIXELDATA pixel = {static_cast<uint8_t>(pixelMap[i][j] * 255), static_cast<uint8_t>(pixelMap[i][j] * 255), static_cast<uint8_t>(pixelMap[i][j]* 255)};
             out.write((char*)&pixel, sizeof(PIXELDATA));
         } 
-        /*for (int j = 0; j < nullBites; j++) {
-//            PIXELDATA pixel = {122,200,12};
-//            out.write((char*)&pixel, sizeof(PIXELDATA));
-            out.write((char*)&nullValue, sizeof(uint8_t));
-        }*/
-            //out.write((char*)&nullValue, sizeof(int8_t));
     }
 
     out.close();

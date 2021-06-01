@@ -28,6 +28,11 @@ int Triangle::intersect_triangle(Ray ray) {
 
     det = DOT(edge1, pvec);
 
+<<<<<<< Updated upstream
+=======
+
+
+>>>>>>> Stashed changes
     if (det > -EPSILON && det < EPSILON) {
         return 0;
     }
@@ -46,6 +51,12 @@ int Triangle::intersect_triangle(Ray ray) {
     if (v < 0.0 || u + v > 1.0)
         return 0;
 
+<<<<<<< Updated upstream
+=======
+    t = DOT(edge2, qvec) * inv_det;
+
+
+>>>>>>> Stashed changes
     return 1;
 } 
 

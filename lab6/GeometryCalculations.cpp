@@ -10,7 +10,7 @@
 void Geometry::getNormalVector(){
     vectorCoordinates[0].push_back(y2*z3 - y1*z3 - y2*z1 - y3*z2 + y3*z1 + y1*z2);
     vectorCoordinates[0].push_back(z2*x3 - z1*x3 - z2*x1 - z3*x2 + z3*x1 + x2*z1);
-    vectorCoordinates[0].push_back(x2*y2 - x1*y3 - x2*y1 - x3*y2 + x3*y1 + x1*y2);
+    vectorCoordinates[0].push_back(x2*y3 - x1*y3 - x2*y1 - x3*y2 + x3*y1 + x1*y2);
 }
 
 void  Geometry::getVectorToLightPoint(){

@@ -34,7 +34,7 @@ int main(int argc, const char * argv[]) {
     
     
     
-    int h = 720, w = 1024;
+    int h = 1024, w = 1024;
     //int h = 20, w = 20;
     
     Frame frame(h, w, tree);

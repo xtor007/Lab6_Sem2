@@ -21,7 +21,7 @@ class ObjReader{
     string path;
     vector<vector<float>> vertexes;
     /// hardcode
-    float lightPointX = -5.0, lightPointY = 5.0, lightPointZ = 5.0; // luminary
+    float lightPointX = -5.0, lightPointY = 0, lightPointZ = 0; // luminary
     /// hardcode end
 
     vector<float> getPointFromLine(string line);
